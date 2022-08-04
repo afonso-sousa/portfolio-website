@@ -1,25 +1,33 @@
 import React from 'react'
-import './header.css'
-import CTA from './CTA'
-import ME from '../../assets/me.png'
-import HeaderSocials from './HeaderSocials'
+import './header.scss'
+import CV from '../../assets/cv.pdf'
 
 const Header = () => {
   return (
     <header>
-      <div className="container header__container">
-        <h5>Hello I'm</h5>
-        <h1>Afonso Sousa</h1>
-        <h5 className="text-light">Data Scientist</h5>
-        <CTA />
-        <HeaderSocials />
-        <div className="me">
-          <img src={ME} alt="me" />
+      <div className='header__container'>
+        <h2>Hello, my name is</h2>
+        <h1>Afonso Sousa.</h1>
+        <h1>I like building things with software.</h1>
+        <p>
+          I am a Software Engineer specializing in Data Science. In my spare
+          time I tinker with web development, game development and design.
+          Currently, I am a PhD student working on paraphrase generation at{' '}
+          <a
+            className='hover-underline-animation'
+            href='https://sigarra.up.pt/feup/pt/web_page.inicial'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            FEUP
+          </a>
+          .
+        </p>
+        <div>
+          <a href={CV} download className='btn'>
+            Check out my CV!
+          </a>
         </div>
-
-        <a href="#contact" className="scroll__down">
-          Scroll Down
-        </a>
       </div>
     </header>
   )
