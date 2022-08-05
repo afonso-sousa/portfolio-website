@@ -37,7 +37,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   .container {
-    width: var(--container-width-lg);
+    width: ${({ theme }) => theme.containerWidthLg};
     margin: 0 auto;
   }
 
@@ -93,7 +93,7 @@ export const GlobalStyles = createGlobalStyle`
   /* ============= Media Queries (Medium Devices) ============= */
   @media screen and (max-width: 1024px) {
     .container {
-        width: var(--container-width-md);
+        width: ${({ theme }) => theme.containerWidthMd};
     }
 
     section {
@@ -104,7 +104,7 @@ export const GlobalStyles = createGlobalStyle`
   /* ============= Media Queries (Small Devices) ============= */
   @media screen and (max-width: 600px) {
     .container {
-        width: var(--container-width-sm);
+        width: ${({ theme }) => theme.containerWidthSm};
     }
 
     section > h2 {

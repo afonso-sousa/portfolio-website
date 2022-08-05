@@ -1,25 +1,107 @@
+@use "../../colors";
+
+$height: 80px;
+$width: 80px;
+$inner_height: 70px;
+$inner_width: 70px;
+
 body {
-    background-color: #d3d3d3;
-    padding: 100px 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    background-color: colors.$color-secondary;
 }
 
-@keyframes circle-loading {
-    to {
-        transform: rotateZ(360deg);
+#loading {
+    width: $width;
+    height: $height;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.inner-circle {
+    z-index: 4;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    top: 50%;
+    left: 50%;
+    margin-left: calc(-#{$inner_width} / 2);
+    margin-top: calc(-#{$inner_height} / 2);
+    width: $inner_width;
+    height: $inner_height;
+    background-color: colors.$color-secondary;
+}
+.hold {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip: rect(0px, $width, $height, calc(#{$width} / 2));
+    border-radius: 100%;
+    background-color: colors.$color-secondary;
+}
+.fill,
+.dot span {
+    background-color: colors.$color-primary;
+}
+.fill {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    clip: rect(0px, calc(#{$width} / 2), $height, 0px);
+}
+.left .fill {
+    z-index: 1;
+    animation: left 1s ease-in both;
+}
+@keyframes left {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(180deg);
+    }
+}
+  
+.right {
+    z-index: 3;
+    transform: rotate(180deg);
+}
+.right .fill {
+    z-index: 3;
+    animation: right 0.5s linear both;
+    animation-delay: 1s;
+}
+@keyframes right {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(180deg);
     }
 }
 
-.circle-spinner span {
-    display: block;
-    width: 70px;
-    height: 70px;
-    border: 2px solid transparent;
-    border-radius: 50%;
-    border-top-color: teal;
-    animation: circle-loading 1200ms ease infinite;
+.fade-in-image { 
+    animation: fade-in 2s forwards;
+    animation-delay: 2s;
 }
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% { 
+        opacity: 1;
+    }
+  }
+
+img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $height;
+    opacity: 0;
+}
+  

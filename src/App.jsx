@@ -10,16 +10,13 @@ import SideBar from './components/sidebar/SideBar'
 import { ThemeProvider } from 'styled-components'
 import { lightTheme, darkTheme } from './theme'
 import { GlobalStyles } from './global'
+import Loader from './components/loader/Loader'
 
 const App = () => {
   const [loading, setLoading] = useState(true)
-  const spinner = document.getElementById('spinner')
-  if (spinner) {
-    setTimeout(() => {
-      spinner.style.display = 'none'
-      setLoading(false)
-    }, 2000)
-  }
+  setTimeout(() => {
+    setLoading(false)
+  }, 3500)
 
   const [isToggled, setIsToggled] = useState(false)
   const [theme, setTheme] = useState('light')
@@ -33,9 +30,11 @@ const App = () => {
   }
 
   return (
-    !loading && (
-      <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-        <>
+    <>
+      {loading ? (
+        <Loader />
+      ) : (
+        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
           <GlobalStyles />
           <SideBar />
           <Header />
@@ -45,9 +44,9 @@ const App = () => {
           <Portfolio />
           <Contact />
           <Footer />
-        </>
-      </ThemeProvider>
-    )
+        </ThemeProvider>
+      )}
+    </>
   )
 }
 

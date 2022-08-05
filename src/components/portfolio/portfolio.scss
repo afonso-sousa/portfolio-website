@@ -56,10 +56,10 @@
 /* ============= Media Queries (Small Devices) ============= */
 @media screen and (max-width: 600px) {
     .container.portfolio__container {
-        width: var(--container-width-sm);
+        width: 90%;
     }
 
     .portfolio__item-summary {
-        width: var(--container-width-sm);
+        width: 90%;
     }
 }

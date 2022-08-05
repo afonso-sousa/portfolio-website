@@ -10,48 +10,8 @@
     
     <title>Afonso Sousa</title>
 
-    <style>
-        .loading {
-            display: block;
-            width: 70px;
-            height: 70px;
-            border: 2px solid transparent;
-            border-radius: 50%;
-            border-top-color: teal;
-            animation: circle-loading 1200ms ease infinite;
-        }
-
-        #spinner {
-            align-items: center;
-            display: flex;
-            height: 100vh;
-            justify-content: center;
-            width: 100vw;
-        }
-
-        @keyframes circle-loading {
-            to {
-                transform: rotateZ(360deg);
-            }
-        }
-
-        @keyframes sk-scaleout {
-            0% {
-                -webkit-transform: scale(0);
-                transform: scale(0);
-            }
-            100% {
-                -webkit-transform: scale(1);
-                opacity: 0.5;
-                transform: scale(1);
-            }
-        }
-    </style>
 </head>
 <body>
-    <div id="spinner">
-        <div class="loading"></div>
-    </div>
     <div id="root"></div>
 </body>
 </html>
