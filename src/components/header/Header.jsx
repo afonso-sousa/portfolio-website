@@ -1,11 +1,11 @@
 import React from 'react'
-import './header.scss'
 import CV from '../../assets/cv.pdf'
+import * as Styled from './Header.styled'
 
 const Header = () => {
   return (
-    <header>
-      <div className='header__container'>
+    <Styled.Header>
+      <Styled.HeaderContainer>
         <h2>Hello, my name is</h2>
         <h1>Afonso Sousa.</h1>
         <h1>I like building things with software.</h1>
@@ -28,8 +28,8 @@ const Header = () => {
             Check out my CV!
           </a>
         </div>
-      </div>
-    </header>
+      </Styled.HeaderContainer>
+    </Styled.Header>
   )
 }
 

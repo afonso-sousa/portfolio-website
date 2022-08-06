@@ -22,9 +22,9 @@ const App = () => {
   const [theme, setTheme] = useState('light')
   const toggleTheme = () => {
     if (isToggled) {
-      setTheme('dark')
-    } else {
       setTheme('light')
+    } else {
+      setTheme('dark')
     }
     setIsToggled(!isToggled)
   }

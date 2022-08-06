@@ -4,6 +4,7 @@ import { BiBook, BiMessageSquareDetail } from 'react-icons/bi'
 import { BsFillJournalBookmarkFill } from 'react-icons/bs'
 import './nav.scss'
 import Switch from '../switch/Switch'
+import { BrowserRouter as Router, useLocation } from 'react-router-dom'
 
 const Nav = ({ isToggled, onToggle }) => {
   const [activeNav, setActiveNav] = useState('#')
@@ -44,7 +45,7 @@ const Nav = ({ isToggled, onToggle }) => {
       >
         <BiMessageSquareDetail />
       </a>
-      <div class='vl'></div>
+      <div className='vl'></div>
       <Switch className='switch' isToggled={isToggled} onToggle={onToggle} />
     </nav>
   )

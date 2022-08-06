@@ -1,12 +1,13 @@
-@use "../../colors";
-
 $height: 80px;
 $width: 80px;
 $inner_height: 70px;
 $inner_width: 70px;
 
+$color-primary: #D1512D;
+$color-secondary: #F5E8E4;
+
 body {
-    background-color: colors.$color-secondary;
+    background-color: $color-secondary;
 }
 
 #loading {
@@ -29,7 +30,7 @@ body {
     margin-top: calc(-#{$inner_height} / 2);
     width: $inner_width;
     height: $inner_height;
-    background-color: colors.$color-secondary;
+    background-color: $color-secondary;
 }
 .hold {
     position: absolute;
@@ -37,11 +38,11 @@ body {
     height: 100%;
     clip: rect(0px, $width, $height, calc(#{$width} / 2));
     border-radius: 100%;
-    background-color: colors.$color-secondary;
+    background-color: $color-secondary;
 }
 .fill,
 .dot span {
-    background-color: colors.$color-primary;
+    background-color: $color-primary;
 }
 .fill {
     position: absolute;

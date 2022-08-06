@@ -7,8 +7,8 @@ const Switch = ({ isToggled, onToggle }) => {
     <label className='switch'>
       <input type='checkbox' checked={isToggled} onChange={onToggle} />
       <span className='slider'>
-        <BsMoonStarsFill className='icon' />
         <BsSunFill className='icon' />
+        <BsMoonStarsFill className='icon' />
       </span>
     </label>
   )

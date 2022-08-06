@@ -16,6 +16,8 @@
     "react-leaflet": "^4.0.1",
     "react-linkify-it": "^1.0.7",
     "react-loaders": "^3.0.1",
+    "react-router-dom": "^6.3.0",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "^5.0.1",
     "sass": "^1.53.0",
     "styled-components": "^5.3.5",
