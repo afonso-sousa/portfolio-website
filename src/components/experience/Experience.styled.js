@@ -32,3 +32,19 @@ export const ExperienceContainer = styled.div`
   align-items: center;
   width: 80%;
 `
+
+export const EntranceAnimation = styled.div`
+  animation: fade-in 0.75s backwards;
+  animation-delay: ${(props) => props.delay};
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.8, 0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+`

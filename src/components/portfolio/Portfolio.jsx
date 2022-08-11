@@ -5,6 +5,7 @@ import { Pagination, Navigation } from 'swiper'
 import { SwiperSlide } from 'swiper/react'
 import * as Styled from './Portfolio.styled'
 import { FiGithub } from 'react-icons/fi'
+import handleViewport from 'react-in-viewport'
 
 import 'swiper/css'
 import 'swiper/css/pagination'
@@ -50,15 +51,12 @@ const data = [
   },
 ]
 
-const Portfolio = () => {
+function PortfolioComponent() {
   return (
     <Styled.Portfolio>
       <h2>Things I've Built</h2>
 
       <Styled.PortfolioContainer
-        pagination={{
-          type: 'progressbar',
-        }}
         navigation={true}
         modules={[Pagination, Navigation]}
         spaceBetween={40}
@@ -96,6 +94,33 @@ const Portfolio = () => {
         })}
       </Styled.PortfolioContainer>
     </Styled.Portfolio>
+  )
+}
+
+const Block = (props) => {
+  const { inViewport, forwardedRef } = props
+
+  if (inViewport) {
+    return (
+      <Styled.EntranceAnimation delay={'0.4s'} ref={forwardedRef}>
+        <PortfolioComponent />
+      </Styled.EntranceAnimation>
+    )
+  }
+  return (
+    <div ref={forwardedRef}>
+      <PortfolioComponent />
+    </div>
+  )
+}
+
+const ViewportBlock = handleViewport(Block)
+
+const Portfolio = () => {
+  return (
+    <div>
+      <ViewportBlock />
+    </div>
   )
 }
 

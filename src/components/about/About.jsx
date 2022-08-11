@@ -2,8 +2,9 @@ import React from 'react'
 import me from '../../assets/me.png'
 import * as Styled from './About.styled'
 import { FiTriangle } from 'react-icons/fi'
+import handleViewport from 'react-in-viewport'
 
-const About = () => {
+function AboutComponent() {
   return (
     <Styled.About>
       <h2>About me</h2>
@@ -46,6 +47,33 @@ const About = () => {
         </Styled.AboutContent>
       </Styled.AboutContainer>
     </Styled.About>
+  )
+}
+
+const Block = (props) => {
+  const { inViewport, forwardedRef } = props
+
+  if (inViewport) {
+    return (
+      <Styled.EntranceAnimation delay={'0.4s'} ref={forwardedRef}>
+        <AboutComponent />
+      </Styled.EntranceAnimation>
+    )
+  }
+  return (
+    <div ref={forwardedRef}>
+      <AboutComponent />
+    </div>
+  )
+}
+
+const ViewportBlock = handleViewport(Block)
+
+const About = () => {
+  return (
+    <div>
+      <ViewportBlock />
+    </div>
   )
 }
 

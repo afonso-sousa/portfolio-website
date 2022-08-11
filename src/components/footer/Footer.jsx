@@ -1,7 +1,8 @@
 import React from 'react'
 import * as Styled from './Footer.styled'
+import handleViewport from 'react-in-viewport'
 
-const Footer = () => {
+function FooterComponent() {
   return (
     <Styled.Footer>
       <h2>Next Steps</h2>
@@ -30,6 +31,33 @@ const Footer = () => {
       </Styled.FooterContainer>
       <small>&copy; Designed & Built by Afonso Sousa</small>
     </Styled.Footer>
+  )
+}
+
+const Block = (props) => {
+  const { inViewport, forwardedRef } = props
+
+  if (inViewport) {
+    return (
+      <Styled.EntranceAnimation delay={'0.4s'} ref={forwardedRef}>
+        <FooterComponent />
+      </Styled.EntranceAnimation>
+    )
+  }
+  return (
+    <div ref={forwardedRef}>
+      <FooterComponent />
+    </div>
+  )
+}
+
+const ViewportBlock = handleViewport(Block)
+
+const Footer = () => {
+  return (
+    <div>
+      <ViewportBlock />
+    </div>
   )
 }
 

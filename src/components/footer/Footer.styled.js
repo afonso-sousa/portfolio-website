@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Footer = styled.footer`
+  height: 100vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -58,5 +59,21 @@ export const HoverEffectLink = styled.a`
   &:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+  }
+`
+
+export const EntranceAnimation = styled.div`
+  animation: fade-in 0.75s backwards;
+  animation-delay: ${(props) => props.delay};
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.8, 0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
   }
 `

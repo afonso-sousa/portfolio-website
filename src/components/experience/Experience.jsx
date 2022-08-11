@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
-import { BsPatchCheckFill } from 'react-icons/bs'
+import React from 'react'
 import * as Styled from './Experience.styled'
-import TabList from './TabList'
+import TabList from './tablist/TabList'
+import handleViewport from 'react-in-viewport'
 
 const experiences = [
   {
@@ -33,12 +33,39 @@ const experiences = [
   },
 ]
 
-const Experience = () => {
+function ExperienceComponent() {
   return (
     <Styled.Experience>
       <h2>Works I've Had</h2>
       <TabList data={experiences} />
     </Styled.Experience>
+  )
+}
+
+const Block = (props) => {
+  const { inViewport, forwardedRef } = props
+
+  if (inViewport) {
+    return (
+      <Styled.EntranceAnimation delay={'0.4s'} ref={forwardedRef}>
+        <ExperienceComponent />
+      </Styled.EntranceAnimation>
+    )
+  }
+  return (
+    <div ref={forwardedRef}>
+      <ExperienceComponent />
+    </div>
+  )
+}
+
+const ViewportBlock = handleViewport(Block)
+
+const Experience = () => {
+  return (
+    <div>
+      <ViewportBlock />
+    </div>
   )
 }
 

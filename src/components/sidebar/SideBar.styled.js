@@ -1,4 +1,20 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+const fadeInAnimation = css`
+  animation: fade-in 0.75s backwards;
+  animation-delay: ${(props) => props.delay};
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.8, 0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
+  }
+`
 
 export const Socials = styled.div`
   display: flex;
@@ -7,6 +23,7 @@ export const Socials = styled.div`
   position: fixed;
   left: 3rem;
   bottom: 0;
+  ${fadeInAnimation}
 
   &::after {
     content: '';
@@ -21,6 +38,7 @@ export const Icon = styled.a`
     font-size: 1.4rem;
     margin-bottom: 1rem;
     transition: all 200ms ease;
+    ${fadeInAnimation}
 
     &:hover {
       transition: all 200ms ease;
@@ -38,6 +56,7 @@ export const Email = styled.div`
   position: fixed;
   right: 3rem;
   bottom: 0;
+  ${fadeInAnimation}
 
   &::after {
     content: '';

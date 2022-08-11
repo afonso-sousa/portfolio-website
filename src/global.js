@@ -51,4 +51,10 @@ export const GlobalStyles = createGlobalStyle`
       background: ${({ theme }) => theme.primary2};
     }
   }
+
+  .swiper-button-next,
+  .swiper-button-prev,
+  .swiper-pagination-bullet-active {
+    color: ${({ theme }) => theme.primary};
+  }
 `

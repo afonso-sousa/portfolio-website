@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Header = styled.header`
-  height: 100vh;
+  height: 101vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -28,24 +28,24 @@ export const HeaderContainer = styled.div`
   width: 900px;
   transition: all 0.25s linear;
 
-  & > h1 {
+  & h1 {
       font-size: 3rem;
   }
 
-  & > p {
+  & p {
       margin: 2rem 0 2.6rem;
       color: ${({ theme }) => theme.primaryText};
   }
 
-  & > h2 {
+  & h2 {
       color: ${({ theme }) => theme.primary};
       margin-bottom: 1rem;
   }
-
-  & h1:nth-of-type(2) {
-      color: ${({ theme }) => theme.secondaryText};
-  }
 }
+`
+
+export const SecondTitle = styled.h1`
+  color: ${({ theme }) => theme.secondaryText};
 `
 
 export const HoverEffectLink = styled.a`
@@ -69,5 +69,21 @@ export const HoverEffectLink = styled.a`
   &:hover:after {
     transform: scaleX(1);
     transform-origin: bottom left;
+  }
+`
+
+export const EntranceAnimation = styled.div`
+  animation: fade-in 0.75s backwards;
+  animation-delay: ${(props) => props.delay};
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0;
+      transform: scale(0.8, 0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1, 1);
+    }
   }
 `
