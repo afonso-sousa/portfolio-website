@@ -20,6 +20,7 @@ export const Icon = styled.a`
     color: ${({ theme }) => theme.primaryAccent};
     font-size: 1.4rem;
     margin-bottom: 1rem;
+    transition: all 200ms ease;
 
     &:hover {
       transition: all 200ms ease;
@@ -51,6 +52,7 @@ export const Email = styled.div`
     font-size: 1rem;
     margin-bottom: 1rem;
     color: ${({ theme }) => theme.primaryAccent};
+    transition: all 200ms ease;
 
     &:hover {
       transition: all 200ms ease;

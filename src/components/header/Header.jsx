@@ -13,14 +13,13 @@ const Header = () => {
           I am a Software Engineer specializing in Data Science. In my spare
           time I tinker with web development, game development and design.
           Currently, I am a PhD student working on paraphrase generation at{' '}
-          <a
-            className='hover-underline-animation'
+          <Styled.HoverEffectLink
             href='https://sigarra.up.pt/feup/pt/web_page.inicial'
             target='_blank'
             rel='noopener noreferrer'
           >
             FEUP
-          </a>
+          </Styled.HoverEffectLink>
           .
         </p>
         <div>

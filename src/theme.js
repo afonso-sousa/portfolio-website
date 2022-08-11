@@ -27,4 +27,13 @@ var darkTheme = {
 lightTheme = Object.assign({}, lightTheme, generalVariables)
 darkTheme = Object.assign({}, darkTheme, generalVariables)
 
-export { lightTheme, darkTheme }
+var loaderTheme = {
+  height: '80px',
+  width: '80px',
+  innerHeight: '70px',
+  innerWidth: '70px',
+  primaryColor: '#D1512D',
+  secondaryColor: '#F5E8E4',
+}
+
+export { lightTheme, darkTheme, loaderTheme }

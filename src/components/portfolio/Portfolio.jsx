@@ -1,16 +1,14 @@
 import React from 'react'
 import CATBIRD_BANNER from '../../assets/catbird_banner.png'
 import ARG_WORDCLOUD from '../../assets/arg_wordcloud.png'
-import './portfolio.scss'
+import { Pagination, Navigation } from 'swiper'
+import { SwiperSlide } from 'swiper/react'
+import * as Styled from './Portfolio.styled'
+import { FiGithub } from 'react-icons/fi'
 
-// import Swiper core and required modules
-import { Pagination } from 'swiper'
-
-import { Swiper, SwiperSlide } from 'swiper/react'
-
-// Import Swiper styles
 import 'swiper/css'
 import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 const data = [
   {
@@ -28,15 +26,15 @@ const data = [
     summary: (
       <p>
         Approach to build a Portuguese version of the{' '}
-        <a
+        <Styled.HoverEffectLink
           href={'https://paperswithcode.com/dataset/ukp'}
           target='_blank'
           rel='noopener noreferrer'
         >
           Persuasive Essays corpus
-        </a>{' '}
+        </Styled.HoverEffectLink>{' '}
         in Portuguese. The work was published in EPIA'21 and can be found{' '}
-        <a
+        <Styled.HoverEffectLink
           href={
             'https://link.springer.com/chapter/10.1007/978-3-030-86230-5_59'
           }
@@ -44,7 +42,7 @@ const data = [
           rel='noopener noreferrer'
         >
           here
-        </a>
+        </Styled.HoverEffectLink>
         .
       </p>
     ),
@@ -54,50 +52,50 @@ const data = [
 
 const Portfolio = () => {
   return (
-    <section id='portfolio'>
-      <h5>My Recent Work</h5>
-      <h2>Portfolio</h2>
+    <Styled.Portfolio>
+      <h2>Things I've Built</h2>
 
-      <Swiper
-        className='container portfolio__container'
-        // install Swiper modules
-        modules={[Pagination]}
+      <Styled.PortfolioContainer
+        pagination={{
+          type: 'progressbar',
+        }}
+        navigation={true}
+        modules={[Pagination, Navigation]}
         spaceBetween={40}
         slidesPerView={1}
-        pagination={{ clickable: true }}
       >
         {data.map(({ id, image, title, summary, github, demo }) => {
           return (
-            <SwiperSlide key={id} className='portfolio__item'>
-              <div className='portfolio__item-image'>
-                <img src={image} alt={title} />
-              </div>
-              <h3>{title}</h3>
-              <small className='portfolio__item-summary'>{summary}</small>
-              <div className='portfolio__item-cta'>
-                <a
-                  href={github}
-                  className='btn'
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  Github
-                </a>
-                <a
-                  href={demo}
-                  className='btn btn-primary'
-                  style={{ display: demo ? 'block' : 'none' }}
-                  target='_blank'
-                  rel='noopener noreferrer'
-                >
-                  Live Demo
-                </a>
-              </div>
+            <SwiperSlide key={id}>
+              <Styled.PortfolioItem>
+                <Styled.ImgContainer>
+                  <img src={image} alt={title} />
+                </Styled.ImgContainer>
+                <h3>{title}</h3>
+                <Styled.Summary>{summary}</Styled.Summary>
+                <Styled.IconContainer>
+                  <Styled.Icon
+                    href={github}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    <FiGithub />
+                  </Styled.Icon>
+                  <Styled.Icon
+                    href={demo}
+                    style={{ display: demo ? 'block' : 'none' }}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                  >
+                    Live Demo
+                  </Styled.Icon>
+                </Styled.IconContainer>
+              </Styled.PortfolioItem>
             </SwiperSlide>
           )
         })}
-      </Swiper>
-    </section>
+      </Styled.PortfolioContainer>
+    </Styled.Portfolio>
   )
 }
 

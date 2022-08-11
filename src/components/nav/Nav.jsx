@@ -1,53 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai'
-import { BiBook, BiMessageSquareDetail } from 'react-icons/bi'
+import { BiBook } from 'react-icons/bi'
 import { BsFillJournalBookmarkFill } from 'react-icons/bs'
-import './nav.scss'
+// import './nav.scss'
 import Switch from '../switch/Switch'
-import { BrowserRouter as Router, useLocation } from 'react-router-dom'
+import { Link } from 'react-scroll'
+import * as Styled from './Nav.styled'
 
 const Nav = ({ isToggled, onToggle }) => {
-  const [activeNav, setActiveNav] = useState('#')
   return (
-    <nav>
-      <a
-        href='/#'
-        onClick={() => setActiveNav('#')}
-        className={activeNav === '#' ? 'active' : ''}
-      >
+    <Styled.Nav>
+      <Link activeClass='active' to={'header'} spy={true}>
         <AiOutlineHome />
-      </a>
-      <a
-        href='#about'
-        onClick={() => setActiveNav('#about')}
-        className={activeNav === '#about' ? 'active' : ''}
-      >
+      </Link>
+      <Link activeClass='active' to={'about'} spy={true}>
         <AiOutlineUser />
-      </a>
-      <a
-        href='#experience'
-        onClick={() => setActiveNav('#experience')}
-        className={activeNav === '#experience' ? 'active' : ''}
-      >
+      </Link>
+      <Link activeClass='active' to={'experience'} spy={true}>
         <BiBook />
-      </a>
-      <a
-        href='#portfolio'
-        onClick={() => setActiveNav('#portfolio')}
-        className={activeNav === '#portfolio' ? 'active' : ''}
-      >
+      </Link>
+      <Link activeClass='active' to={'portfolio'} spy={true}>
         <BsFillJournalBookmarkFill />
-      </a>
-      <a
-        href='#contact'
-        onClick={() => setActiveNav('#contact')}
-        className={activeNav === '#contact' ? 'active' : ''}
-      >
-        <BiMessageSquareDetail />
-      </a>
-      <div className='vl'></div>
+      </Link>
+      <div></div>
       <Switch className='switch' isToggled={isToggled} onToggle={onToggle} />
-    </nav>
+    </Styled.Nav>
   )
 }
 

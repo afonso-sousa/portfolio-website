@@ -23,7 +23,6 @@ export const GlobalStyles = createGlobalStyle`
     background-size: 30px 30px;
     background-position: 0 0, 15px 15px;
     line-height: 1.7;
-    transition: all 0.25s linear;
   }
 
   html {
@@ -34,32 +33,8 @@ export const GlobalStyles = createGlobalStyle`
       display: none;
   }
 
-  .container {
-    width: ${({ theme }) => theme.containerWidthLg};
-    margin: 0 auto;
-  }
-
   h1, h2, h3, h4, h5 {
     font-weight: 500;
-  }
-
-  section {
-    margin-top: 8rem;
-  }
-
-  section > h2, section > h5 {
-    text-align: center;
-    color: var(--color-light);
-  }
-
-  section > h2 {
-    color: colors.$color-primary;
-    margin-bottom: 3rem;
-  }
-
-  a {
-    color: ${({ theme }) => theme.primary};
-    transition: all 400ms ease;
   }
 
   .btn {
@@ -74,39 +49,6 @@ export const GlobalStyles = createGlobalStyle`
 
     &:hover {
       background: ${({ theme }) => theme.primary2};
-    }
-  }
-
-  .btn-primary {
-      background: colors.$color-primary;
-      color: ${({ theme }) => theme.primaryBg};
-  }
-
-  img {
-    display: block;
-    width: 100%;
-    object-fit: cover;
-  }
-
-  /* ============= Media Queries (Medium Devices) ============= */
-  @media screen and (max-width: 1024px) {
-    .container {
-        width: ${({ theme }) => theme.containerWidthMd};
-    }
-
-    section {
-        margin-bottom: 6rem;
-    }
-  }
-
-  /* ============= Media Queries (Small Devices) ============= */
-  @media screen and (max-width: 600px) {
-    .container {
-        width: ${({ theme }) => theme.containerWidthSm};
-    }
-
-    section > h2 {
-        margin-bottom: 2rem;
     }
   }
 `

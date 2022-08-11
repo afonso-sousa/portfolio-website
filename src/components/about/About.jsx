@@ -1,60 +1,51 @@
 import React from 'react'
-import './about.scss'
-import ME from '../../assets/me.png'
-import { FaAward } from 'react-icons/fa'
-import { FiUsers } from 'react-icons/fi'
-import { VscFolderLibrary } from 'react-icons/vsc'
+import me from '../../assets/me.png'
+import * as Styled from './About.styled'
+import { FiTriangle } from 'react-icons/fi'
 
 const About = () => {
   return (
-    <section id='about'>
-      <h5>Get to Know</h5>
+    <Styled.About>
       <h2>About me</h2>
 
-      <div className='container about__container'>
-        <div className='about__me'>
-          <div className='about__me-image'>
-            <img src={ME} alt='ME' />
-          </div>
-        </div>
+      <Styled.AboutContainer>
+        <Styled.AboutMe>
+          <img src={me} alt='me' />
+        </Styled.AboutMe>
 
-        <div className='about__content'>
-          <div className='about__cards'>
-            <article className='about__card'>
-              <FaAward className='about__icon' />
-              <h5>Experience</h5>
-              <small>2+ Years Researching</small>
-            </article>
-            <article className='about__card'>
-              <FiUsers className='about__icon' />
-              <h5>Clients</h5>
-              <small>200+ Worldwide</small>
-            </article>
-            <article className='about__card'>
-              <VscFolderLibrary className='about__icon' />
-              <h5>Projects</h5>
-              <small>80+ Completed</small>
-            </article>
-          </div>
-
+        <Styled.AboutContent>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            finibus magna vel sapien imperdiet, vitae gravida erat varius. Sed
-            fringilla tempus neque ac tempor. Nam a fermentum neque. Maecenas
-            finibus ante at pellentesque dictum. Aenean non nunc finibus,
-            interdum leo id, venenatis est. Proin faucibus neque ut arcu dapibus
-            gravida eget eu ligula. Nulla malesuada est sit amet orci semper,
-            nec tempor libero porta. Praesent a tellus ut elit pharetra viverra
-            in vitae orci. Curabitur nec massa sed sem placerat luctus feugiat
-            eget felis.
+            Hello! My name is Afonso and I enjoy creating every kind of
+            software. My knowledge is rooted in a sturdy education, having
+            completed a bachelor's and a master's degree in Computer
+            Engineering. Today, I am a PhD student at FEUP, researching in
+            Natural Language Processing, specifically in Paraphrase Generation.
+            I love to tinker with many different technologies. Following are a
+            few I have been working with recently:
           </p>
-
-          <a href='#contact' className='btn btn-primary'>
-            Let's Talk
-          </a>
-        </div>
-      </div>
-    </section>
+          <Styled.TechItemList>
+            <Styled.TechItem>
+              <Styled.Icon>
+                <FiTriangle />
+              </Styled.Icon>
+              <h4>React</h4>
+            </Styled.TechItem>
+            <Styled.TechItem>
+              <Styled.Icon>
+                <FiTriangle />
+              </Styled.Icon>
+              <h4>Godot</h4>
+            </Styled.TechItem>
+            <Styled.TechItem>
+              <Styled.Icon>
+                <FiTriangle />
+              </Styled.Icon>
+              <h4>Pytorch</h4>
+            </Styled.TechItem>
+          </Styled.TechItemList>
+        </Styled.AboutContent>
+      </Styled.AboutContainer>
+    </Styled.About>
   )
 }
 

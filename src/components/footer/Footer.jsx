@@ -1,54 +1,35 @@
 import React from 'react'
-import './footer.scss'
-import { BsLinkedin, BsGithub } from 'react-icons/bs'
+import * as Styled from './Footer.styled'
 
 const Footer = () => {
   return (
-    <footer>
-      {/* <a href='/#' className='footer__logo'>
-        Afonso Sousa
-      </a>
-
-      <ul className='permalinks'>
-        <li>
-          <a href='/#'>Home</a>
-        </li>
-        <li>
-          <a href='#about'>About</a>
-        </li>
-        <li>
-          <a href='#experience'>Experience</a>
-        </li>
-        <li>
-          <a href='#portfolio'>Portfolio</a>
-        </li>
-        <li>
-          <a href='#contact'>Contact</a>
-        </li>
-      </ul>
-
-      <div className='footer__socials'>
-        <a
-          href='https://linkedin.com/in/afonsousa'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <BsLinkedin />
-        </a>
-        <a
-          href='https://github.com/AfonsoSalgadoSousa/'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          <BsGithub />
-        </a>
-      </div>
-
-      <div className='footer__copyright'>
-        <small>&copy; Afonso Sousa. All rights reserved.</small>
-      </div> */}
-      Designed & Built by Afonso Sousa
-    </footer>
+    <Styled.Footer>
+      <h2>Next Steps</h2>
+      <Styled.FooterContainer>
+        <p>
+          Although I am not currently looking for any new opportunities, my
+          inbox is always open. Leave an email and I will try my best to get
+          back to you! Do not forget to visit my{' '}
+          <Styled.HoverEffectLink
+            href='https://linkedin.com/in/afonsousa'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            LinkedIn
+          </Styled.HoverEffectLink>{' '}
+          and{' '}
+          <Styled.HoverEffectLink
+            href='https://github.com/AfonsoSalgadoSousa/'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Github
+          </Styled.HoverEffectLink>
+          .
+        </p>
+      </Styled.FooterContainer>
+      <small>&copy; Designed & Built by Afonso Sousa</small>
+    </Styled.Footer>
   )
 }
 

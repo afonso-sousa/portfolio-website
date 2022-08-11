@@ -4,13 +4,13 @@ import Nav from './components/nav/Nav'
 import About from './components/about/About'
 import Experience from './components/experience/Experience'
 import Portfolio from './components/portfolio/Portfolio'
-import Contact from './components/contact/Contact'
 import Footer from './components/footer/Footer'
 import SideBar from './components/sidebar/SideBar'
 import { ThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme } from './theme'
+import { lightTheme, darkTheme, loaderTheme } from './theme'
 import { GlobalStyles } from './global'
 import Loader from './components/loader/Loader'
+import { Element } from 'react-scroll'
 
 const App = () => {
   const [loading, setLoading] = useState(true)
@@ -32,17 +32,27 @@ const App = () => {
   return (
     <>
       {loading ? (
-        <Loader />
+        <ThemeProvider theme={loaderTheme}>
+          <GlobalStyles />
+          <Loader />
+        </ThemeProvider>
       ) : (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
           <GlobalStyles />
           <SideBar />
-          <Header />
           <Nav isToggled={isToggled} onToggle={toggleTheme} />
-          <About />
-          <Experience />
-          <Portfolio />
-          <Contact />
+          <Element name={'header'}>
+            <Header />
+          </Element>
+          <Element name={'about'}>
+            <About />
+          </Element>
+          <Element name={'experience'}>
+            <Experience />
+          </Element>
+          <Element name={'portfolio'}>
+            <Portfolio />
+          </Element>
           <Footer />
         </ThemeProvider>
       )}

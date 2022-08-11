@@ -1,20 +1,22 @@
 import React from 'react'
-import './loader.scss'
 import LOGO from '../../assets/portfolio_logo.png'
+import * as Styled from './Loader.styled'
 
 const Loader = () => {
   return (
-    <div id='loading'>
-      <div className='inner-circle'>
-        <img className='fade-in-image' src={LOGO} alt='logo' />
-      </div>
-      <div className='hold left'>
-        <div className='fill'></div>
-      </div>
-      <div className='hold right'>
-        <div className='fill'></div>
-      </div>
-    </div>
+    <Styled.Background>
+      <Styled.Loader>
+        <Styled.InnerCircle>
+          <Styled.FadeInImg src={LOGO} alt='logo' />
+        </Styled.InnerCircle>
+        <Styled.HoldLeft>
+          <Styled.Fill></Styled.Fill>
+        </Styled.HoldLeft>
+        <Styled.HoldRight>
+          <Styled.Fill></Styled.Fill>
+        </Styled.HoldRight>
+      </Styled.Loader>
+    </Styled.Background>
   )
 }
 
