@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { Swiper, SwiperSlide } from 'swiper/react'
 
 export const Portfolio = styled.div`
-  height: 100vh;
+  height: 101vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -23,12 +23,23 @@ export const Portfolio = styled.div`
       height: 1px;
       background: ${({ theme }) => theme.primary};
       margin: 1rem;
+      
+      @media screen and (max-width: 600px) {
+        width: 3rem;
+      }
     }
-  }
+
+    @media screen and (max-width: 600px) {
+      font-size: 1.1rem;
+    }
 `
 
 export const PortfolioContainer = styled(Swiper)`
   width: 80%;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+  }
 `
 
 export const PortfolioItem = styled(SwiperSlide)`
@@ -38,9 +49,17 @@ export const PortfolioItem = styled(SwiperSlide)`
   border-radius: 2rem;
   border: 1px solid transparent;
   transition: all 400ms ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   & h3 {
     color: ${({ theme }) => theme.secondaryText};
+
+    @media screen and (max-width: 600px) {
+      font-size: 0.9rem;
+    }
   }
 
   & img {
@@ -59,6 +78,10 @@ export const ImgContainer = styled.div`
   border-radius: 1.5rem;
   overflow: hidden;
   margin: 0 auto 1rem;
+
+  @media screen and (max-width: 600px) {
+    width: 15rem;
+  }
 `
 
 export const Summary = styled.small`
@@ -67,6 +90,12 @@ export const Summary = styled.small`
   display: block;
   width: 80%;
   margin: 0.8rem auto 2rem;
+
+  @media screen and (max-width: 600px) {
+    font-size: 0.8rem;
+    margin: 1rem;
+    width: 100%;
+  }
 `
 
 export const IconContainer = styled.div`

@@ -29,9 +29,9 @@ export const GlobalStyles = createGlobalStyle`
     scroll-behavior: smooth;
   }
 
-  ::-webkit-scrollbar {
-      display: none;
-  }
+  // ::-webkit-scrollbar {
+  //     display: none;
+  // }
 
   h1, h2, h3, h4, h5 {
     font-weight: 500;

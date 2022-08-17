@@ -29,7 +29,6 @@ function FooterComponent() {
           .
         </p>
       </Styled.FooterContainer>
-      <small>&copy; Designed & Built by Afonso Sousa</small>
     </Styled.Footer>
   )
 }

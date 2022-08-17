@@ -15,9 +15,7 @@ export const Header = styled.header`
 
   /* ============= Media Queries (Small Devices) ============= */
   @media screen and (max-width: 600px) {
-    header {
-      height: 100vh;
-    }
+    padding: 1.5rem;
   }
 `
 
@@ -30,6 +28,10 @@ export const HeaderContainer = styled.div`
 
   & h1 {
       font-size: 3rem;
+
+    @media screen and (max-width: 600px) {
+      font-size: 2rem;
+    }
   }
 
   & p {

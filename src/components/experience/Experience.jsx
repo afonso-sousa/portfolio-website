@@ -28,8 +28,42 @@ const experiences = [
     institution: 'INESC TEC',
     institution_url: 'https://www.inesctec.pt/en',
     date: 'June 2020 - October 2021',
-    summary:
-      'Building action recognition deep learning algorithms for in-vehicle behaviour prediction.',
+    summary: (
+      <p>
+        Project developed for{' '}
+        <Styled.HoverEffectLink
+          href={'https://www.bosch.pt/'}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          Bosch
+        </Styled.HoverEffectLink>
+        , building action recognition deep learning algorithms for in-vehicle
+        behaviour prediction.
+      </p>
+    ),
+  },
+  {
+    id: 4,
+    job: 'Junior Developer',
+    institution: 'Rumos',
+    institution_url: 'https://www.rumos.pt/',
+    date: 'April 2018 - February 2020',
+    summary: (
+      <p>
+        Outsorcing work for{' '}
+        <Styled.HoverEffectLink
+          href={'http://masdima.pt/home/'}
+          target='_blank'
+          rel='noopener noreferrer'
+        >
+          MASDIMA
+        </Styled.HoverEffectLink>
+        , developing end-to-end predictive pipeline for aircraft flight times
+        and serving multi-agent negotiation protocols through end-point
+        gateways.
+      </p>
+    ),
   },
 ]
 

@@ -31,6 +31,15 @@ export const Socials = styled.div`
     height: 5rem;
     background: ${({ theme }) => theme.primaryAccent};
   }
+
+  /* ============= Media Queries (Medium Devices) ============= */
+  @media screen and (max-width: 1024px) {
+  }
+
+  /* ============= Media Queries (Small Devices) ============= */
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 `
 
 export const Icon = styled.a`
@@ -78,5 +87,10 @@ export const Email = styled.div`
       color: ${({ theme }) => theme.primary};
       transform: translate(0, -5px);
     }
+  }
+
+  /* ============= Media Queries (Small Devices) ============= */
+  @media screen and (max-width: 600px) {
+    display: none;
   }
 `

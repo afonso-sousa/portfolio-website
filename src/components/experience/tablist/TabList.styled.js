@@ -7,12 +7,27 @@ export const Tabs = styled.div`
   align-items: center;
   width: 80%;
   margin-top: 3rem;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const TabList = styled.ul`
   color: ${({ theme }) => theme.primaryText};
   position: relative;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    display: flex;
+    overflow-x: scroll;
+    padding-bottom: 2rem;
+    font-size: 0.8rem;
+  }
 `
+
 export const TabItem = styled.li`
   background: transparent;
   padding: 1rem;

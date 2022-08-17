@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Footer = styled.footer`
-  height: 100vh;
+  height: 101vh;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -24,18 +24,28 @@ export const Footer = styled.footer`
       height: 1px;
       background: ${({ theme }) => theme.primary};
       margin: 1rem;
-    }
-  }
 
-  & small {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+      @media screen and (max-width: 600px) {
+        width: 3rem;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 1.1rem;
+    }
   }
 `
 
 export const FooterContainer = styled.div`
   width: 80%;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+
+    & p {
+      font-size: 0.9rem;
+    }
+  }
 `
 
 export const HoverEffectLink = styled.a`

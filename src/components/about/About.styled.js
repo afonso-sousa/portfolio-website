@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const About = styled.div`
-  height: 100vh;
+  height: 101vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,6 +21,14 @@ export const About = styled.div`
       height: 1px;
       background: ${({ theme }) => theme.primary};
       margin: 1rem;
+
+      @media screen and (max-width: 600px) {
+        width: 3rem;
+      }
+    }
+
+    @media screen and (max-width: 600px) {
+      font-size: 1.1rem;
     }
   }
 `
@@ -32,6 +40,12 @@ export const AboutContainer = styled.div`
   align-items: center;
 
   width: 80%;
+
+  @media screen and (max-width: 600px) {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 `
 
 export const AboutMe = styled.div`
@@ -64,8 +78,8 @@ export const AboutMe = styled.div`
   }
 
   @media screen and (max-width: 600px) {
-    width: 65%;
-    margin: 0 auto 3rem;
+    width: 50%;
+    margin: 0 auto;
   }
 `
 
@@ -73,35 +87,21 @@ export const AboutContent = styled.div`
   & p {
     margin: 2rem 0 2.6rem;
     color: ${({ theme }) => theme.primaryText};
+
+    @media screen and (max-width: 600px) {
+      font-size: 0.9rem;
+      margin: 2rem 0 1rem;
+    }
   }
 
   /* ============= Media Queries (Medium Devices) ============= */
   @media screen and (max-width: 1024px) {
-    .about__container {
-      grid-template-columns: 1fr;
-      gap: 0;
-
-      & p {
-        margin: 1rem 0 1.5rem;
-      }
-    }
-  }
-
-  /* ============= Media Queries (Small Devices) ============= */
-  @media screen and (max-width: 600px) {
-    .about__content {
-      text-align: center;
-
-      & p {
-        margin: 1.5rem 0;
-      }
-    }
   }
 `
 
 export const TechItemList = styled.div`
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   row-gap: 1rem;
 `
 
