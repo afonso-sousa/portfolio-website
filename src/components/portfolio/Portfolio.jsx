@@ -1,6 +1,7 @@
 import React from 'react'
 import CATBIRD_BANNER from '../../assets/catbird_banner.png'
 import ARG_WORDCLOUD from '../../assets/arg_wordcloud.png'
+import LOGO from '../../assets/portfolio_logo.png'
 import { Pagination, Navigation } from 'swiper'
 import { SwiperSlide } from 'swiper/react'
 import * as Styled from './Portfolio.styled'
@@ -48,6 +49,13 @@ const data = [
       </p>
     ),
     github: 'https://github.com/AfonsoSalgadoSousa/argumentation_mining_pt',
+  },
+  {
+    id: 3,
+    image: LOGO,
+    title: 'Web Portfolio',
+    summary: 'This very website!',
+    github: 'https://github.com/AfonsoSalgadoSousa/portfolio-website',
   },
 ]
 
