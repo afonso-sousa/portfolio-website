@@ -6,7 +6,7 @@ const generalVariables = {
 
 var lightTheme = {
   primaryBg: '#F5E8E4',
-  bgVariant: '#f5c7a9',
+  bgVariant: '#F5C7A9',
   primary: '#D1512D',
   primary2: '#D1512D40',
   primaryAccent: '#363537',
