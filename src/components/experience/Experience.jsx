@@ -1,26 +1,30 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import * as Styled from './Experience.styled'
 import TabList from './tablist/TabList'
-import handleViewport from 'react-in-viewport'
 
 const experiences = [
   {
     id: 1,
-    job: 'Junior Researcher',
+    job: 'Teaching Assistant',
     institution: 'FEUP',
     institution_url: 'https://sigarra.up.pt/feup/pt/web_page.inicial',
-    date: 'December 2021 - Present',
+    date: 'September 2020 - Present',
     summary:
-      'Research on discourse parsing. Building predictive models for various natural language processing tasks and building a corpus of parliamentary minutes.',
+      <p>
+        'Teaching assistant of the first programming courses of the Bachelor in Informatics and Computing Engineering at FEUP.',
+      </p>
   },
   {
     id: 2,
-    job: 'Invited Assistant Professor',
+    job: 'Junior Researcher',
     institution: 'FEUP',
     institution_url: 'https://sigarra.up.pt/feup/pt/web_page.inicial',
-    date: 'September 2021 - Present',
+    date: 'December 2021 - June 2022',
     summary:
-      'Teaching of the practical classes of the first programming course of the Bachelor in Informatics and Computing Engineering at FEUP.',
+      <p>
+        'Research on discourse parsing. Building predictive models for various natural language processing tasks and building a corpus of parliamentary minutes.',
+      </p>
   },
   {
     id: 3,
@@ -51,7 +55,7 @@ const experiences = [
     date: 'April 2018 - February 2020',
     summary: (
       <p>
-        Outsorcing work for{' '}
+        Outsourcing work for{' '}
         <Styled.HoverEffectLink
           href={'http://masdima.pt/home/'}
           target='_blank'
@@ -67,40 +71,29 @@ const experiences = [
   },
 ]
 
-function ExperienceComponent() {
+function Experience() {
   return (
     <Styled.Experience>
-      <h2>Works I've Had</h2>
-      <TabList data={experiences} />
+      <MotionEntrance delay={0.5}>
+        <h2>Works I've Had</h2>
+      </MotionEntrance>
+      <MotionEntrance delay={0.6}>
+        <TabList data={experiences} />
+      </MotionEntrance>
     </Styled.Experience>
   )
 }
 
-const Block = (props) => {
-  const { inViewport, forwardedRef } = props
-
-  if (inViewport) {
-    return (
-      <Styled.EntranceAnimation delay={'0.4s'} ref={forwardedRef}>
-        <ExperienceComponent />
-      </Styled.EntranceAnimation>
-    )
-  }
-  return (
-    <div ref={forwardedRef}>
-      <ExperienceComponent />
-    </div>
-  )
-}
-
-const ViewportBlock = handleViewport(Block)
-
-const Experience = () => {
-  return (
-    <div>
-      <ViewportBlock />
-    </div>
-  )
-}
+// Reusable motion component
+const MotionEntrance = ({ children, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay }}
+  >
+    {children}
+  </motion.div>
+)
 
 export default Experience

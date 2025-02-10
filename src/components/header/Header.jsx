@@ -1,24 +1,24 @@
+import { motion } from 'framer-motion'
 import React from 'react'
 import CV from '../../assets/cv.pdf'
 import * as Styled from './Header.styled'
-import handleViewport from 'react-in-viewport'
 
-function HeaderComponent() {
+function Header() {
   return (
     <Styled.Header>
       <Styled.HeaderContainer>
-        <Styled.EntranceAnimation delay={'0.5s'}>
+        <MotionEntrance delay={0.5}>
           <h2>Hello, my name is</h2>
-        </Styled.EntranceAnimation>
-        <Styled.EntranceAnimation delay={'0.6s'}>
+        </MotionEntrance>
+        <MotionEntrance delay={0.6}>
           <h1>Afonso Sousa.</h1>
-        </Styled.EntranceAnimation>
-        <Styled.EntranceAnimation delay={'0.7s'}>
+        </MotionEntrance>
+        <MotionEntrance delay={0.7}>
           <Styled.SecondTitle>
             I like building things with software.
           </Styled.SecondTitle>
-        </Styled.EntranceAnimation>
-        <Styled.EntranceAnimation delay={'0.8s'}>
+        </MotionEntrance>
+        <MotionEntrance delay={0.8}>
           <p>
             I am a Software Engineer specializing in Data Science. In my spare
             time I tinker with web development, game development and design.
@@ -32,44 +32,29 @@ function HeaderComponent() {
             </Styled.HoverEffectLink>
             .
           </p>
-        </Styled.EntranceAnimation>
-        <Styled.EntranceAnimation delay={'0.9s'}>
+        </MotionEntrance>
+        <MotionEntrance delay={0.9}>
           <div>
             <a href={CV} download className='btn'>
               Check out my CV!
             </a>
           </div>
-        </Styled.EntranceAnimation>
+        </MotionEntrance>
       </Styled.HeaderContainer>
     </Styled.Header>
   )
 }
 
-const Block = (props) => {
-  const { inViewport, forwardedRef } = props
-
-  if (inViewport) {
-    return (
-      <Styled.EntranceAnimation delay={'0.4s'} ref={forwardedRef}>
-        <HeaderComponent />
-      </Styled.EntranceAnimation>
-    )
-  }
-  return (
-    <div ref={forwardedRef}>
-      <HeaderComponent />
-    </div>
-  )
-}
-
-const ViewportBlock = handleViewport(Block)
-
-const Header = () => {
-  return (
-    <div>
-      <ViewportBlock />
-    </div>
-  )
-}
+// Reusable animation wrapper with Framer Motion
+const MotionEntrance = ({ children, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay }}
+  >
+    {children}
+  </motion.div>
+)
 
 export default Header

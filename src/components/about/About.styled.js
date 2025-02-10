@@ -67,9 +67,9 @@ export const AboutMe = styled.div`
     transform: rotate(10deg);
     transition: all 400ms ease;
 
-    &:hover {
-      transform: rotate(0);
-    }
+    // &:hover {
+    //   transform: rotate(0);
+    // }
   }
 
   @media screen and (max-width: 1024px) {

@@ -1,80 +1,63 @@
+import { motion } from 'framer-motion'
 import React from 'react'
-import me from '../../assets/me.png'
-import * as Styled from './About.styled'
 import { FiTriangle } from 'react-icons/fi'
-import handleViewport from 'react-in-viewport'
+import me from '../../assets/me.jpeg'
+import * as Styled from './About.styled'
 
-function AboutComponent() {
+function About() {
   return (
     <Styled.About>
-      <h2>About me</h2>
+      <MotionEntrance delay={0.4}>
+        <h2>About me</h2>
+      </MotionEntrance>
 
       <Styled.AboutContainer>
-        <Styled.AboutMe>
-          <img src={me} alt='me' />
-        </Styled.AboutMe>
+        <MotionEntrance delay={0.5}>
+          <Styled.AboutMe>
+            <img src={me} alt='me' />
+          </Styled.AboutMe>
+        </MotionEntrance>
 
-        <Styled.AboutContent>
-          <p>
-            Hello! My name is Afonso and I enjoy creating every kind of
-            software. My knowledge is rooted in a sturdy education, having
-            completed a bachelor's and a master's degree in Computer
-            Engineering. Today, I am a PhD student at FEUP, researching in
-            Natural Language Processing, specifically in Paraphrase Generation.
-            I love to tinker with many different technologies. Following are a
-            few I have been working with recently:
-          </p>
-          <Styled.TechItemList>
-            <Styled.TechItem>
-              <Styled.Icon>
-                <FiTriangle />
-              </Styled.Icon>
-              <h4>React</h4>
-            </Styled.TechItem>
-            <Styled.TechItem>
-              <Styled.Icon>
-                <FiTriangle />
-              </Styled.Icon>
-              <h4>Godot</h4>
-            </Styled.TechItem>
-            <Styled.TechItem>
-              <Styled.Icon>
-                <FiTriangle />
-              </Styled.Icon>
-              <h4>Pytorch</h4>
-            </Styled.TechItem>
-          </Styled.TechItemList>
-        </Styled.AboutContent>
+        <MotionEntrance delay={0.6}>
+          <Styled.AboutContent>
+            <p>
+              Hello! My name is Afonso and I enjoy creating every kind of
+              software. My knowledge is rooted in a sturdy education, having
+              completed a bachelor's and a master's degree in Computer
+              Engineering. Today, I am a PhD student at FEUP, researching in
+              Natural Language Processing, specifically in Paraphrase
+              Generation. I love to tinker with many different technologies.
+              Following are a few I have been working with recently:
+            </p>
+            <Styled.TechItemList>
+              {['Pytorch', 'Flutter', 'Godot'].map((tech, index) => (
+                <MotionEntrance key={tech} delay={0.7 + index * 0.1}>
+                  <Styled.TechItem>
+                    <Styled.Icon>
+                      <FiTriangle />
+                    </Styled.Icon>
+                    <h4>{tech}</h4>
+                  </Styled.TechItem>
+                </MotionEntrance>
+              ))}
+            </Styled.TechItemList>
+          </Styled.AboutContent>
+        </MotionEntrance>
       </Styled.AboutContainer>
     </Styled.About>
   )
 }
 
-const Block = (props) => {
-  const { inViewport, forwardedRef } = props
-
-  if (inViewport) {
-    return (
-      <Styled.EntranceAnimation delay={'0.4s'} ref={forwardedRef}>
-        <AboutComponent />
-      </Styled.EntranceAnimation>
-    )
-  }
-  return (
-    <div ref={forwardedRef}>
-      <AboutComponent />
-    </div>
-  )
-}
-
-const ViewportBlock = handleViewport(Block)
-
-const About = () => {
-  return (
-    <div>
-      <ViewportBlock />
-    </div>
-  )
-}
+// Reusable motion wrapper
+const MotionEntrance = ({ children, delay }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.6, delay }}
+  >
+    {children}
+  </motion.div>
+)
 
 export default About

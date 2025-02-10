@@ -50,7 +50,7 @@ const TabList = ({ data }) => {
               </span>
             </h4>
             <small>{date}</small>
-            <p>{summary}</p>
+            {summary}
           </Styled.TabContent>
         )
       })}

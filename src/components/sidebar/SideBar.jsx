@@ -1,5 +1,5 @@
 import React from 'react'
-import { FiLinkedin, FiGithub } from 'react-icons/fi'
+import { FiGithub, FiLinkedin } from 'react-icons/fi'
 import * as Styled from './SideBar.styled'
 
 const SideBar = () => {
@@ -15,7 +15,7 @@ const SideBar = () => {
           <FiLinkedin className='icon' />
         </Styled.Icon>
         <Styled.Icon
-          href='https://github.com/AfonsoSalgadoSousa/'
+          href='https://github.com/afonso-sousa/'
           target='_blank'
           rel='noopener noreferrer'
           delay={'1.4s'}

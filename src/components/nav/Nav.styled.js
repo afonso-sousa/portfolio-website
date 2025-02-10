@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Nav = styled.nav`
   padding: 0.7rem 1.7rem;
@@ -33,7 +33,7 @@ export const Nav = styled.nav`
 
   & a.active {
     background: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.primaryText};
+    // color: ${({ theme }) => theme.primaryText};
   }
 
   & div {

@@ -1,18 +1,18 @@
 import React, { useState } from 'react'
-import Header from './components/header/Header'
-import Nav from './components/nav/Nav'
+import { FiGithub, FiLinkedin } from 'react-icons/fi'
+import { BrowserRouter } from 'react-router-dom'
+import styled, { ThemeProvider } from 'styled-components'
 import About from './components/about/About'
 import Experience from './components/experience/Experience'
-import Portfolio from './components/portfolio/Portfolio'
 import Footer from './components/footer/Footer'
-import SideBar from './components/sidebar/SideBar'
-import { ThemeProvider } from 'styled-components'
-import { lightTheme, darkTheme, loaderTheme } from './theme'
-import { GlobalStyles } from './global'
+import Header from './components/header/Header'
 import Loader from './components/loader/Loader'
-import { Element } from 'react-scroll'
-import styled from 'styled-components'
-import { FiLinkedin, FiGithub } from 'react-icons/fi'
+import Nav from './components/nav/Nav'
+import Portfolio from './components/portfolio/Portfolio'
+import Research from './components/research/Research'
+import SideBar from './components/sidebar/SideBar'
+import { GlobalStyles } from './global'
+import { darkTheme, lightTheme, loaderTheme } from './theme'
 
 const Copyright = styled.div`
   margin-left: 6rem;
@@ -75,41 +75,46 @@ const App = () => {
         </ThemeProvider>
       ) : (
         <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-          <GlobalStyles />
-          <SideBar />
-          <Nav isToggled={isToggled} onToggle={toggleTheme} />
-          <Element name={'header'}>
-            <Header />
-          </Element>
-          <Element name={'about'}>
-            <About />
-          </Element>
-          <Element name={'experience'}>
-            <Experience />
-          </Element>
-          <Element name={'portfolio'}>
-            <Portfolio />
-          </Element>
-          <Footer />
-          <Copyright>
-            <CopyrightIcons>
-              <Icon
-                href='https://linkedin.com/in/afonsousa'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <FiLinkedin />
-              </Icon>
-              <Icon
-                href='https://github.com/AfonsoSalgadoSousa/'
-                target='_blank'
-                rel='noopener noreferrer'
-              >
-                <FiGithub />
-              </Icon>
-            </CopyrightIcons>
-            <small>&copy; Designed & Built by Afonso Sousa</small>
-          </Copyright>
+          <BrowserRouter>
+            <GlobalStyles />
+            <SideBar />
+            <Nav isToggled={isToggled} onToggle={toggleTheme} />
+            <div id="header">
+              <Header />
+            </div>
+            <div id="about">
+              <About />
+            </div>
+            <div id="experience">
+              <Experience />
+            </div>
+            <div id="portfolio">
+              <Portfolio />
+            </div>
+            <div id="research">
+              <Research />
+            </div>
+            <Footer />
+            <Copyright>
+              <CopyrightIcons>
+                <Icon
+                  href='https://linkedin.com/in/afonsousa'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <FiLinkedin />
+                </Icon>
+                <Icon
+                  href='https://github.com/afonso-sousa/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                >
+                  <FiGithub />
+                </Icon>
+              </CopyrightIcons>
+              <small>&copy; Designed & Built by Afonso Sousa</small>
+            </Copyright>
+          </BrowserRouter>
         </ThemeProvider>
       )}
     </>
