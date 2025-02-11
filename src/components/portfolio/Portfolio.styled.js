@@ -51,8 +51,9 @@ export const PortfolioItem = styled(SwiperSlide)`
   transition: all 400ms ease;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  height: 600px;
 
   & h3 {
     color: ${({ theme }) => theme.secondaryText};
@@ -71,13 +72,12 @@ export const ImgContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-  background: linear-gradient(${({ theme }) => theme.primary}, transparent);
+  // background: linear-gradient(${({ theme }) => theme.primary}, transparent);
   width: 20rem;
   aspect-ratio: 1/1;
   border-radius: 1.5rem;
   overflow: hidden;
-  margin: 0 auto 1rem;
+  margin: 2rem;
 
   @media screen and (max-width: 600px) {
     width: 15rem;
