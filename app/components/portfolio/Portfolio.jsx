@@ -1,48 +1,52 @@
-import { motion } from 'framer-motion'
-import React from 'react'
-import { FiExternalLink, FiGithub } from 'react-icons/fi'
-import { Navigation, Pagination } from 'swiper'
-import { SwiperSlide } from 'swiper/react'
-import CATBIRD_BANNER from '../../assets/catbird_banner.png'
-import PORTFOLIO_LOGO from '../../assets/portfolio_logo.png'
-import SPACE_SNATCHERS_LOGO from '../../assets/space_snatchers_logo.png'
-import TOMATE_LOGO from '../../assets/tomate_logo.png'
-import * as Styled from './Portfolio.styled'
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { FiExternalLink, FiGithub } from 'react-icons/fi';
+import { Navigation, Pagination } from 'swiper';
+import { SwiperSlide } from 'swiper/react';
+import * as Styled from './Portfolio.styled';
 
-import 'swiper/css'
-import 'swiper/css/navigation'
-import 'swiper/css/pagination'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 const data = [
   {
     id: 1,
-    image: CATBIRD_BANNER,
+    image: '/assets/catbird_banner.png',
+    width: 1424,
+    height: 345,
     title: 'Catbird',
     summary: 'Open-source toolkit for paraphrase generation.',
     github: 'https://github.com/afonso-sousa/catbird',
   },
   {
     id: 2,
-    image: SPACE_SNATCHERS_LOGO,
+    image: '/assets/space_snatchers_logo.png',
+    width: 512,
+    height: 512,
     title: 'Space Snatchers',
     summary: 'Endless runner mobile game developed in Godot.',
     url: 'https://play.google.com/store/apps/details?id=org.afonsousa.SpaceSnatchers&hl=pt_PT',
   },
   {
     id: 3,
-    image: PORTFOLIO_LOGO,
+    image: '/assets/portfolio_logo.png',
+    width: 250,
+    height: 250,
     title: 'Web Portfolio',
     summary: 'This very website!',
     github: 'https://github.com/afonso-sousa/portfolio-website',
   },
   {
     id: 4,
-    image: TOMATE_LOGO,
+    image: '/assets/tomate_logo.png',
+    width: 512,
+    height: 512,
     title: 'Tomate',
     summary: 'A Pomodoro timer app built with Flutter.',
     url: 'https://play.google.com/store/apps/details?id=org.afonsousa.tomate&hl=pt_PT',
   },
-]
+];
 
 function Portfolio() {
   return (
@@ -61,12 +65,22 @@ function Portfolio() {
           1024: { slidesPerView: 3 }, // Larger screens: 3 items
         }}
       >
-        {data.map(({ id, image, title, summary, github, url }) => (
+        {data.map(({ id, image, title, summary, github, url, width, height }) => (
           <SwiperSlide key={id}>
             <MotionEntrance delay={0.2 + id * 0.1}>
               <Styled.PortfolioItem>
                 <Styled.ImgContainer>
-                  <img src={image} alt={title} />
+                  <Image
+                    src={image}
+                    alt={title}
+                    width={width}
+                    height={height}
+                    style={{
+                      width: '100%', // Make the image responsive
+                      height: 'auto', // Maintain aspect ratio
+                      objectFit: 'contain', // Ensure the image fits inside the container
+                    }}
+                  />
                 </Styled.ImgContainer>
                 <h3>{title}</h3>
                 <Styled.Summary>{summary}</Styled.Summary>
@@ -96,7 +110,7 @@ function Portfolio() {
         ))}
       </Styled.PortfolioContainer>
     </Styled.Portfolio>
-  )
+  );
 }
 
 // Reusable animation wrapper with Framer Motion
@@ -109,6 +123,6 @@ const MotionEntrance = ({ children, delay }) => (
   >
     {children}
   </motion.div>
-)
+);
 
-export default Portfolio
+export default Portfolio;

@@ -98,7 +98,7 @@ export const HoldRight = styled.div`
   }
 `
 
-export const FadeInImg = styled.img`
+export const FadeInImgWrapper = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;

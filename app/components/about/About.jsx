@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
-import React from 'react'
+import Image from 'next/image'
 import { FiTriangle } from 'react-icons/fi'
-import me from '../../assets/me.jpeg'
 import * as Styled from './About.styled'
 
 function About() {
@@ -14,7 +13,14 @@ function About() {
       <Styled.AboutContainer>
         <MotionEntrance delay={0.5}>
           <Styled.AboutMe>
-            <img src={me} alt='me' />
+            <Image src="/assets/me.jpeg"
+              alt='me'
+              width={278}
+              height={389}
+              style={{
+                width: 'auto',
+                height: 'auto',
+              }} />
           </Styled.AboutMe>
         </MotionEntrance>
 

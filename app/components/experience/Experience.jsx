@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import React from 'react'
 import * as Styled from './Experience.styled'
 import TabList from './tablist/TabList'
 
@@ -12,7 +11,7 @@ const experiences = [
     date: 'September 2020 - Present',
     summary:
       <p>
-        'Teaching assistant of the first programming courses of the Bachelor in Informatics and Computing Engineering at FEUP.',
+        Teaching assistant of the first programming courses of the Bachelor in Informatics and Computing Engineering at FEUP.
       </p>
   },
   {
@@ -23,7 +22,7 @@ const experiences = [
     date: 'December 2021 - June 2022',
     summary:
       <p>
-        'Research on discourse parsing. Building predictive models for various natural language processing tasks and building a corpus of parliamentary minutes.',
+        Research on discourse parsing. Building predictive models for various natural language processing tasks and building a corpus of parliamentary minutes.
       </p>
   },
   {

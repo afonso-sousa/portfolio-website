@@ -1,9 +1,8 @@
-import React from 'react';
+import Link from 'next/link';
 import { AiOutlineHome, AiOutlineUser } from 'react-icons/ai';
 import { BsFillJournalBookmarkFill } from 'react-icons/bs';
 import { LuShovel } from "react-icons/lu";
 import { MdContentPasteSearch } from "react-icons/md";
-import { HashLink } from 'react-router-hash-link';
 import useActiveSection from '../../hooks/useActiveSection';
 import * as Styled from './Nav.styled';
 import Switch from './switch/Switch';
@@ -17,21 +16,21 @@ const Nav = ({ isToggled, onToggle }) => {
   return (
     <Styled.EntranceAnimation delay={'1s'}>
       <Styled.Nav>
-        <HashLink smooth to="#header" className={activeSection === 'header' ? 'active' : ''}>
+        <Link href="#header" className={activeSection === 'header' ? 'active' : ''}>
           <AiOutlineHome />
-        </HashLink>
-        <HashLink smooth to="#about" className={activeSection === 'about' ? 'active' : ''}>
+        </Link>
+        <Link href="#about" className={activeSection === 'about' ? 'active' : ''}>
           <AiOutlineUser />
-        </HashLink>
-        <HashLink smooth to="#experience" className={activeSection === 'experience' ? 'active' : ''}>
+        </Link>
+        <Link href="#experience" className={activeSection === 'experience' ? 'active' : ''}>
           <LuShovel />
-        </HashLink>
-        <HashLink smooth to="#portfolio" className={activeSection === 'portfolio' ? 'active' : ''}>
+        </Link>
+        <Link href="#portfolio" className={activeSection === 'portfolio' ? 'active' : ''}>
           <BsFillJournalBookmarkFill />
-        </HashLink>
-        <HashLink smooth to="#research" className={activeSection === 'research' ? 'active' : ''}>
+        </Link>
+        <Link href="#research" className={activeSection === 'research' ? 'active' : ''}>
           <MdContentPasteSearch />
-        </HashLink>
+        </Link>
         <div></div>
         <Switch className='switch' isToggled={isToggled} onToggle={onToggle} />
       </Styled.Nav>

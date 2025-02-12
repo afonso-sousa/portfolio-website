@@ -1,7 +1,8 @@
-import { motion } from 'framer-motion'
-import React from 'react'
-import CV from '../../assets/cv.pdf'
-import * as Styled from './Header.styled'
+import { motion } from 'framer-motion';
+import React from 'react';
+import * as Styled from './Header.styled';
+
+const CV = '/assets/cv.pdf';
 
 function Header() {
   return (

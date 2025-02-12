@@ -27,7 +27,7 @@
 3. Start the development server
 
    ```sh
-   npm start
+   npm run dev
    ```
 
 ## 🚀 Building and Running for Production
@@ -38,10 +38,10 @@
    npm run build
    ```
 
-1. Preview the site as it will appear once deployed
+2. Start the production server
 
    ```sh
-   npm run serve
+   npm start
    ```
 
 ## 🎨 Color Reference
